@@ -1,0 +1,9 @@
+name: ${project.name}
+author: LucasEmanuel
+version: ${project.version}
+main: ${project.groupId}.${project.artifactId}.Main
+
+permissions:
+  heatseekers.craft:
+    default: op
+    description: Allows a player to craft the weapon.
