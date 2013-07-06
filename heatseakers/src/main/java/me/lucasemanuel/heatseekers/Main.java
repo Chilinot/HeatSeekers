@@ -179,8 +179,7 @@ public class Main extends JavaPlugin implements Listener {
 				return;
 			}
 			
-			float percentage = getConfig().getInt("smart-percentage") / 100;
-			System.out.println("P:" + percentage); // debug
+			float percentage = ((float) getConfig().getInt("smart-percentage")) / 100f;
 			
 			if(Math.random() < percentage) {
 				List<Entity> list = projectile.getNearbyEntities(15, 15, 15);
