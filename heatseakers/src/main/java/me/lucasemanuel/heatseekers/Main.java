@@ -66,7 +66,7 @@ public class Main extends JavaPlugin implements Listener {
 		Config.load(this);
 		
 		if(getConfig().getBoolean("auto-update")) {
-			new Updater(this, "heatseakers", this.getFile(), Updater.UpdateType.DEFAULT, false);
+			new Updater(this, "heatseekers", this.getFile(), Updater.UpdateType.DEFAULT, false);
 		}
 		
 		try {
