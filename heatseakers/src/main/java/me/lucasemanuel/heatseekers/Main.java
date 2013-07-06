@@ -171,19 +171,28 @@ public class Main extends JavaPlugin implements Listener {
 				player.sendMessage(ChatColor.RED + "Only OP's are allowed to use heatseekers!");
 				return;
 			}
+			if(player.hasPermission("heatseekers.block")) {
+				player.sendMessage(ChatColor.RED + "You don't have permission to use HeatSeekers!");
+				return;
+			}
 			if(!getConfig().getBoolean("all-projectiles") && !(projectile instanceof Arrow)) {
 				return;
 			}
 			
-			List<Entity> list = projectile.getNearbyEntities(15, 15, 15);
-			outer:if(!list.isEmpty()) {
-				for(Entity entity : list) {
-					if(entity instanceof LivingEntity && entity != projectile.getShooter()) {
-						projectiles.put(projectile, entity);
-						break outer;
+			float percentage = getConfig().getInt("smart-percentage") / 100;
+			System.out.println("P:" + percentage); // debug
+			
+			if(Math.random() < percentage) {
+				List<Entity> list = projectile.getNearbyEntities(15, 15, 15);
+				outer:if(!list.isEmpty()) {
+					for(Entity entity : list) {
+						if(entity instanceof LivingEntity && entity != projectile.getShooter()) {
+							projectiles.put(projectile, entity);
+							break outer;
+						}
 					}
+					projectiles.put(projectile, null);
 				}
-				projectiles.put(projectile, null);
 			}
 		}
 	}

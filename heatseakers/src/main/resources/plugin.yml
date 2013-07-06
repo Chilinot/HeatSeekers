@@ -7,3 +7,6 @@ permissions:
   heatseekers.craft:
     default: op
     description: Allows a player to craft the weapon.
+  heatseekers.block:
+    default: false
+    description: Blocks a player from using the plugin.

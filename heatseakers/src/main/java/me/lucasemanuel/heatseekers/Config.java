@@ -44,6 +44,7 @@ public class Config {
 			put("op-only", false);
 			put("all-projectiles", false);
 			put("craftingpermission", true);
+			put("smart-percentage", 100);
 		}};
 		
 		boolean save = false;
